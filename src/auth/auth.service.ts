@@ -3,8 +3,7 @@ import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { EstudianteService } from '../estudiante/estudiante.service';
 import { ProfesorService } from '../profesor/profesor.service';
-let EMAIL_ADMIN="admin123@gmail.com";
-let ADMIN="$2a$12$93GjQ1MxQlri6igw/.0rvOKCWHC9NtXmRkXlAMK4B3bws/r7Akzmy";
+
 
 
 @Injectable()
@@ -20,7 +19,7 @@ export class AuthService {
     let user=null;
     user=await this.profesorService.findOneByEmailWithPass(email) 
     ||await this.estudianteService.findOneByEmailWithPass(email)
-    ||{"email":EMAIL_ADMIN,"password":ADMIN};
+    ||{"email":process.env.EMAIL_ADMIN,"password":process.env.ADMIN};
     if(user.id_profesor){
       tipo="profesor"
       id=user.id_profesor;
