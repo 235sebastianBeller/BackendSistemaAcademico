@@ -32,7 +32,6 @@ export class AuthService {
       tipo="admin";
       id=0;
     }
-
     if (email==user.email.toLowerCase() && await bcrypt.compare(password,user.password)) {
       return {id:id,...user,tipo:tipo};
     }
