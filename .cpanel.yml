@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - cd /home/sisw424/repositories/SistemaAcademicoBackend
+    - /usr/local/bin/npm install
+    - /usr/local/bin/npm run start:dev
